@@ -17,7 +17,7 @@ public class Practice07MatrixTranslateView extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     Bitmap bitmap;
     Point point1 = new Point(200, 200);
-    Point point2 = new Point(600, 200);
+    Point point2 = new Point(500, 200);
     Matrix matrix = new Matrix();
 
     public Practice07MatrixTranslateView(Context context) {
@@ -33,6 +33,7 @@ public class Practice07MatrixTranslateView extends View {
     }
 
     {
+        setLayerType(LAYER_TYPE_SOFTWARE, null);
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.maps);
     }
 
@@ -49,8 +50,8 @@ public class Practice07MatrixTranslateView extends View {
 
         canvas.save();
         matrix.reset();
-        matrix.postTranslate(200, 0);
-//        canvas.setMatrix(matrix);
+        matrix.postTranslate(100, 0);
+        canvas.setMatrix(matrix);
         canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
         canvas.restore();
     }
